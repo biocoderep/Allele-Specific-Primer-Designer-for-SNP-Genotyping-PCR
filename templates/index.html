@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allele Designer Pro</title>
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+    
+    <div class="container animate-in">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon-wrapper">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="url(#paint0_linear)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.5 8.5L8.5 15.5" stroke="url(#paint1_linear)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.5 8.5L15.5 15.5" stroke="url(#paint2_linear)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear" x1="8.5" y1="8.5" x2="15.5" y2="15.5" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                            <linearGradient id="paint2_linear" x1="8.5" y1="15.5" x2="15.5" y2="8.5" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1>Allele Designer</h1>
+            </div>
+            <p>Design precision allele-specific inner reverse primers for SNP genotyping PCR.</p>
+        </header>
+
+        <main class="glass-panel">
+            <form id="uploadForm">
+                
+                <div class="upload-zones">
+                    <!-- FASTA Upload Zone -->
+                    <div class="upload-zone" id="fastaZone">
+                        <input type="file" id="fastaInput" name="fasta" accept=".fasta,.fa,.txt" required hidden>
+                        <div class="upload-content">
+                            <div class="icon-wrapper">
+                                <svg class="upload-icon default-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <svg class="success-icon hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="upload-title">FASTA File</span>
+                            <span class="upload-desc">Drag & Drop or <span class="browse-link">Browse</span></span>
+                            <span class="file-name" id="fastaFileName">No file selected</span>
+                        </div>
+                    </div>
+
+                    <!-- SNPs Upload Zone -->
+                    <div class="upload-zone" id="snpsZone">
+                        <input type="file" id="snpsInput" name="snps" accept=".csv,.xlsx,.xls" required hidden>
+                        <div class="upload-content">
+                            <div class="icon-wrapper">
+                                <svg class="upload-icon default-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 13H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 17H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <svg class="success-icon hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17L4 12" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="upload-title">SNPs File (.csv/.xlsx)</span>
+                            <span class="upload-desc">Drag & Drop or <span class="browse-link">Browse</span></span>
+                            <span class="file-name" id="snpsFileName">No file selected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-section">
+                    <label for="primerLength">Desired Primer Length (bp)</label>
+                    <div class="range-container">
+                        <input type="range" id="primerLength" name="length" min="15" max="35" value="20">
+                        <span id="lengthValue">20</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Generate Primers</span>
+                    <div class="glow-effect"></div>
+                    <div class="progress-bar-container hidden" id="loadingProgress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </button>
+                
+                <div id="errorMessage" class="error-message"></div>
+            </form>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

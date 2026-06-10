@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "allele_designer"
+version = "0.1.0"
+description = "Allele-Specific Primer Designer for SNP Genotyping PCR"
+authors = [
+    {name = "User"}
+]
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "pandas>=1.0.0",
+    "openpyxl>=3.0.0",
+    "flask>=2.0.0",
+    "werkzeug>=2.0.0"
+]
+
+[project.scripts]
+allele-designer = "allele_designer.cli:main"

@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+allele_designer/__init__.py
+allele_designer/cli.py
+allele_designer/core.py
+allele_designer/io.py
+allele_designer.egg-info/PKG-INFO
+allele_designer.egg-info/SOURCES.txt
+allele_designer.egg-info/dependency_links.txt
+allele_designer.egg-info/entry_points.txt
+allele_designer.egg-info/requires.txt
+allele_designer.egg-info/top_level.txt

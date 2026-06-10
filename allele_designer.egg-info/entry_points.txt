@@ -1,0 +1,2 @@
+[console_scripts]
+allele-designer = allele_designer.cli:main
